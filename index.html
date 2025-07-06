@@ -1,92 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Select Rummy App</title>
+  <meta charset="UTF-8">
+  <title>Prediction Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: #100000;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0072ff, #00c6ff);
+      color: #fff;
       text-align: center;
+      padding: 40px 20px 100px;
     }
 
     h1 {
-      margin-top: 40px;
-      color: #ffcc00;
+      font-size: 24px;
+      margin-bottom: 10px;
     }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 40px 20px;
-    }
-
-    .card {
-      background: #1f0000;
-      border-radius: 12px;
-      padding: 20px;
-      width: 250px;
-      box-shadow: 0 0 10px #00000050;
-    }
-
-    .card img {
-      max-width: 120px;
-      height: auto;
-      margin-bottom: 20px;
+    #timer {
+      font-size: 18px;
+      color: #ffdb4d;
+      margin-bottom: 30px;
     }
 
     .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 20px;
-      font-size: 16px;
-      background: #ff5722;
-      color: white;
+      display: block;
+      width: 90%;
+      max-width: 300px;
+      margin: 10px auto;
+      padding: 14px 20px;
+      font-size: 17px;
+      background-color: #ffffff;
+      color: #0072ff;
       border: none;
       border-radius: 8px;
-      text-decoration: none;
       cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .btn:hover {
-      background: #e64a19;
+      background-color: #e6e6e6;
     }
 
-    footer {
-      padding: 20px;
-      font-size: 14px;
-      border-top: 1px solid #333;
-      background: #1a0000;
+    .btn:disabled {
+      background-color: #cccccc;
+      color: #999999;
+      cursor: not-allowed;
+    }
+
+    #support {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 300px;
+    }
+
+    @media screen and (max-width: 480px) {
+      .btn {
+        font-size: 16px;
+        padding: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Choose Your Rummy App</h1>
+  <h1>🎯 Welcome to Prediction Zone</h1>
+  <div id="timer">⏳ Link expires in <span id="countdown">60</span>s</div>
 
-  <div class="container">
-    <div class="card">
-      <img src="https://i.postimg.cc/26rh7qtj/IMG-20250621-183330-985.jpg" alt="Rummy Loot Logo" />
-      <h2>Rummy Loot</h2>
-      <a class="btn" href="https://dtking-ux.github.io/Rummyloot/" target="_blank">Download App</a>
-    </div>
+  <a id="btn3" class="btn" href="https://t.me/PAIDSURESHOTBOT?start=_tgr_rI2pY_IxYWE1" target="_blank">💸 Paid Sure Shot</a>
+  <a id="btn4" class="btn" href="https://t.me/PREDICTION2617BOT?start=_tgr_5gTAgg81Yzc1" target="_blank">🎯 Free Prediction Hack</a>
 
-    <div class="card">
-      <img src="https://i.postimg.cc/sg1MyYkZ/IMG-20250621-183227-343.jpg" alt="Rummy Grand Logo" />
-      <h2>Rummy Grand</h2>
-      <a class="btn" href="https://dtking-ux.github.io/Rummygrand/" target="_blank">Download App</a>
-    </div>
+  <div id="support">
+    <a id="btn5" class="btn" href="https://t.me/DTKINGSUPPORTBOT?start=_tgr_Rqv5-1M1ZmY1" target="_blank">🛠 Contact Support</a>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Rummy Zone. All rights reserved.</p>
-  </footer>
+  <script>
+    let timeLeft = 60;
+    const countdownEl = document.getElementById('countdown');
+    const timerEl = document.getElementById('timer');
+    const buttons = [btn3, btn4, btn5];
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        timerEl.textContent = "❌ Link Expired";
+        buttons.forEach(btn => btn.setAttribute('disabled', true));
+      }
+    }, 1000);
+  </script>
 
 </body>
 </html>
